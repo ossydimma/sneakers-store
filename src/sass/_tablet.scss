@@ -1,0 +1,44 @@
+@media(max-width: 1014px) {
+    .menu {
+        margin: 40px 100px;
+        &-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        .bar-icon {
+            display: none;
+        }
+        ul {
+            display: flex;
+            gap: 15px;
+       
+        }
+        img {
+            width : 30px;
+            height: 30px;
+            margin:0 10px;
+            cursor: pointer;
+            
+        }
+    }
+}
+
+@media(max-width: 900px)  {
+    .menu {
+        margin: 40px 80px ;
+        &-left {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 15px;
+        }
+        .bar-icon {
+            display: block;
+        }
+        ul {
+            display: none;
+           
+        }
+        
+    }
+}

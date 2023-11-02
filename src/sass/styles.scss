@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&display=swap');
+
+@import "/src/sass/reset";
+@import "/src/sass/config";
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 150px;
+    border-bottom: 1px solid $Grayish-blue ;
+    padding-bottom: 30px;
+    @include fonts(16px, 600, $Black);
+    &-left {
+        display: flex;
+        align-items: center;
+        gap: 70px;
+    }
+    .bar-icon {
+        display: none;
+    }
+    ul {
+        display: flex;
+        gap: 20px;
+        @include fonts(16px, 400, $Dark-grayish-blue);
+    }
+    img {
+        width : 30px;
+        height: 30px;
+        margin:0 10px;
+        cursor: pointer;
+        
+    }
+}
+@import 'tablet';
+@import 'mobile'
