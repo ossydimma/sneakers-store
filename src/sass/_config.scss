@@ -9,7 +9,7 @@ $Light-grayish-blue: hsl(223, 64%, 98%);
 $White: hsl(0, 0%, 100%);
 $Black: hsl(0, 0%, 0%); //(with 75% opacity for lightbox background)
 
-@mixin fonts($size, $weight, $color) {
+@mixin fonts($size: 16px, $weight, $color) {
     font-size: $size;
     font-weight: $weight;
     color: $color;

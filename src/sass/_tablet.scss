@@ -36,8 +36,15 @@
             display: block;
         }
         ul {
-            display: none;
-           
+            height: 100vh;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            // width: 50%;
+            background-color: #f0f0f0;
+          
         }
         
     }
