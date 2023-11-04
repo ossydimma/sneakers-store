@@ -9,11 +9,20 @@ import "swiper/css/thumbs";
 
 // import required modules
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper/modules";
-import { useState} from "react";
+import { useEffect, useState} from "react";
 
 function swiper() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [navigator, setNavigator] = useState(false);
   let [count, setCount] = useState(0) ;
+  useEffect(() => {
+    setNavigator(true)
+    window.addEventListener('resize', ()=>{
+        window.innerWidth > 900 ? setNavigator(false) : setNavigator(true)
+    })
+ 
+}, []);
+  
   function addCart(): void {
     setCount(count++)
   }
@@ -30,7 +39,7 @@ function swiper() {
         <div className="imagesCon">
           <Swiper
             spaceBetween={5}
-            // navigation={true}
+            navigation={navigator}
             modules={[FreeMode, Navigation, Thumbs, Autoplay]}
             thumbs={{ swiper: thumbsSwiper }}
             autoplay={{delay: 2000}}
@@ -99,14 +108,16 @@ function swiper() {
               everything the weather can offer.
             </p>
           </div>
-          <div className="price">
-            <strong>$125.00</strong>
-            <div>
-              <span>50%</span>
+          <div className="prices">
+            <div className="price">
+              <strong>$125.00</strong>
+              <div>
+                <span>50%</span>
+              </div>
             </div>
-          </div>
-          <div className="old-price">
-            <p>$250.00</p>
+            <div className="old-price">
+              <p>$250.00</p>
+            </div>
           </div>
           <div className="add-cart">
             <div className="cart-cal">
@@ -115,10 +126,12 @@ function swiper() {
               <strong onClick={addCart}>+</strong>
             </div>
             <div className="cart-btn">
-              <a href="">
-                <img src="/src/images/icon-cart.svg" alt="" />
-                Add to cart
-              </a>
+              <div>
+                <a href="">
+                  <img src="/src/images/icon-cart.svg" alt="" />
+                  Add to cart
+                </a>
+              </div>
             </div>
           </div>
         </div>

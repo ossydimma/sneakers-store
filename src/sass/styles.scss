@@ -7,9 +7,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 40px 150px;
+  margin: 30px 150px;
   border-bottom: 1px solid $Grayish-blue;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   z-index: 2;
   @include fonts(16px, 600, $Black);
   &-left {
@@ -43,7 +43,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 40px 150px;
+  margin: 50px 150px;
 
   .imagesCon {
     width: 40%;
@@ -112,7 +112,7 @@
   .add-cart {
     display: flex;
     gap: 25px;
-    margin-top: 25px;
+    margin-top: 30px;
     align-items: center;
     cursor: pointer;
     .cart-cal {
