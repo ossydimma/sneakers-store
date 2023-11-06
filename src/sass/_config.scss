@@ -1,6 +1,6 @@
-$primary-color1 : hsl(26, 100%, 55%);
+$primary-color1: hsl(26, 100%, 55%);
 $primary-color2: hsl(25, 100%, 94%);
- 
+
 // Neutral colors
 $Very-dark-blue: hsl(220, 13%, 13%);
 $Dark-grayish-blue: hsl(219, 9%, 45%);
@@ -10,9 +10,8 @@ $White: hsl(0, 0%, 100%);
 $Black: hsl(0, 0%, 0%); //(with 75% opacity for lightbox background)
 
 @mixin fonts($size: 16px, $weight, $color) {
-    font-size: $size;
-    font-weight: $weight;
-    color: $color;
-    font-family: 'Kumbh Sans', sans-serif;
-    
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  font-family: "Kumbh Sans", sans-serif;
 }

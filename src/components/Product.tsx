@@ -9,29 +9,26 @@ import "swiper/css/thumbs";
 
 // import required modules
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper/modules";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 function swiper() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [navigator, setNavigator] = useState(false);
-  let [count, setCount] = useState(0) ;
+  const [navigator, setNavigator] = useState(
+    window.innerWidth < 900 ? true : false
+  );
+  let [count, setCount] = useState(0);
   useEffect(() => {
-    setNavigator(true)
-    window.addEventListener('resize', ()=>{
-        window.innerWidth > 900 ? setNavigator(false) : setNavigator(true)
-    })
- 
-}, []);
-  
+    window.addEventListener("resize", () => {
+      window.innerWidth > 900 ? setNavigator(false) : setNavigator(true);
+    });
+  }, []);
+
   function addCart(): void {
-    setCount(count++)
+    setCount(count++);
   }
-  function subCart(): void  {
-    count === 0 ? setCount(0) : setCount(count--)
-    
+  function subCart(): void {
+    count === 0 ? setCount(0) : setCount(count--);
   }
- 
-  
 
   return (
     <>
@@ -42,7 +39,10 @@ function swiper() {
             navigation={navigator}
             modules={[FreeMode, Navigation, Thumbs, Autoplay]}
             thumbs={{ swiper: thumbsSwiper }}
-            autoplay={{delay: 2000}}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
             loop={true}
             className="mySwiper"
           >
@@ -121,9 +121,13 @@ function swiper() {
           </div>
           <div className="add-cart">
             <div className="cart-cal">
-              <strong onClick={subCart}>-</strong>
+              <div onClick={subCart}>
+                <img src="/src/images/icon-minus.svg" alt="minus icon" />
+              </div>
               <p>{count}</p>
-              <strong onClick={addCart}>+</strong>
+              <div onClick={addCart}>
+                <img src="/src/images/icon-plus.svg" alt="plus icon" />
+              </div>
             </div>
             <div className="cart-btn">
               <div>

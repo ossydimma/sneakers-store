@@ -10,7 +10,6 @@
   margin: 30px 150px;
   border-bottom: 1px solid $Grayish-blue;
   padding-bottom: 20px;
-  z-index: 2;
   @include fonts(16px, 600, $Black);
   &-left {
     display: flex;
@@ -21,10 +20,13 @@
     display: none;
   }
   ul {
-    width: 700px;
+    width: auto;
     display: flex;
     gap: 20px;
     @include fonts(16px, 400, $Dark-grayish-blue);
+    img {
+      display: none;
+    }
 
     li {
       :hover {
@@ -43,7 +45,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 50px 150px;
+  margin: 50px 130px 0 ;
 
   .imagesCon {
     width: 40%;
@@ -53,18 +55,17 @@
   // margin-top: 120px;
   box-sizing: border-box;
   width: 100%;
-  .SwiperSlide {
-  }
+ 
   img {
-    width: 350px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
     border-radius: 20px;
     object-fit: contain;
     margin-bottom: 20px;
   }
 }
 .mySwiper2 {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   margin-left: 5px;
 
@@ -122,10 +123,10 @@
       padding: 5px 10px;
       border-radius: 5px;
 
-      strong {
+      img{
         color: $primary-color1;
         font-size: 20px;
-        font-weight: 900;
+        // font-weight: 900;
         cursor: pointer;
       }
     }
