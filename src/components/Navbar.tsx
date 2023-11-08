@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectCount } from "../util/features/count";
 
 function Navbar() {
+  const count = useSelector(selectCount)
+  console.log(count);
+  
   const [showNav, setshowNav] = useState(window.innerWidth > 900 ? true : false);
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -52,6 +57,29 @@ function Navbar() {
               </li>
             </ul>
           )}
+        </div>
+        <div className="cart-items">
+            <div className="cart-title-txt">
+              <h2>cart</h2>
+            </div>
+            <div>
+              <div className="cart-content">
+                <div className="cart-content-image">
+                  <img src="/src/images/image-product-1.jpg" alt="product image" />
+                </div>
+                <div className="cart-content-body">
+                  <h1>Fall Limited Edition Sneakers</h1>
+                  <div className="cart-content-body-flex">
+                    <div >
+                      <p>{`$125.00 * ${count}`}</p>
+                      <strong>${125.00 * count}</strong>
+                    </div>
+                    <img src="/src/images/icon-delete.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+
+            </div>
         </div>
         <div className="menu-right">
           <img src="/src/images/icon-cart.svg" alt="cart" />

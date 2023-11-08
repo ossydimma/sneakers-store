@@ -1,5 +1,7 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCount, increment, decrement } from "../util/features/count";
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,12 +13,14 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
 
-function swiper() {
+function swiper({}) {
+  const count = useSelector(selectCount)
+  const dispatch = useDispatch()
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [navigator, setNavigator] = useState(
     window.innerWidth < 900 ? true : false
   );
-  let [count, setCount] = useState(0);
+ 
   useEffect(() => {
     window.addEventListener("resize", () => {
       window.innerWidth > 900 ? setNavigator(false) : setNavigator(true);
@@ -121,11 +125,15 @@ function swiper() {
           </div>
           <div className="add-cart">
             <div className="cart-cal">
-              <div onClick={subCart}>
+              <div onClick={()=> {
+                if (count > 0) dispatch(decrement())  
+              }}>
                 <img src="/src/images/icon-minus.svg" alt="minus icon" />
               </div>
               <p>{count}</p>
-              <div onClick={addCart}>
+              <div onClick={()=> {
+                dispatch(increment())
+              }}>
                 <img src="/src/images/icon-plus.svg" alt="plus icon" />
               </div>
             </div>
