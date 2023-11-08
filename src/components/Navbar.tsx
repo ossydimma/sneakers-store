@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 import { selectCount } from "../util/features/count";
 
 function Navbar() {
-  const count = useSelector(selectCount)
-  console.log(count);
-  
-  const [showNav, setshowNav] = useState(window.innerWidth > 900 ? true : false);
+  const count = useSelector(selectCount);
+  const [isShow, setIsShow] = useState(false)
+  const [showNav, setshowNav] = useState(
+    window.innerWidth > 900 ? true : false
+  );
   useEffect(() => {
     window.addEventListener("resize", () => {
       window.innerWidth < 900 ? setshowNav(false) : setshowNav(true);
@@ -59,31 +60,41 @@ function Navbar() {
           )}
         </div>
         <div className="cart-items">
-            <div className="cart-title-txt">
-              <h2>cart</h2>
-            </div>
-            <div>
-              <div className="cart-content">
-                <div className="cart-content-image">
-                  <img src="/src/images/image-product-1.jpg" alt="product image" />
-                </div>
-                <div className="cart-content-body">
-                  <h1>Fall Limited Edition Sneakers</h1>
-                  <div className="cart-content-body-flex">
-                    <div >
-                      <p>{`$125.00 * ${count}`}</p>
-                      <strong>${125.00 * count}</strong>
-                    </div>
-                    <img src="/src/images/icon-delete.svg" alt="" />
+          <div className="cart-title-txt">
+            <h4>cart</h4>
+          </div>
+          <div>
+            <div className="cart-content">
+              <div className="cart-content-image">
+                <img
+                  src="/src/images/image-product-1.jpg"
+                  alt="product image"
+                />
+              </div>
+              <div className="cart-content-body">
+                <h1>Fall Limited Edition Sneakers</h1>
+                <div className="cart-content-body-flex">
+                  <div>
+                    <p>{`$125.00 x ${count}`}</p>
+                    <strong>${125.0 * count}</strong>
                   </div>
+                  <img src="/src/images/icon-delete.svg" alt="delete icon" />
                 </div>
               </div>
-
             </div>
+          </div>
+          <div className="cart-item-btn">
+            <button>Checkout</button>
+          </div>
         </div>
         <div className="menu-right">
-          <img src="/src/images/icon-cart.svg" alt="cart" />
-          <img src="/src//images/image-avatar.png" alt="dp" />
+          <div className="cart">
+            {isShow && <p>1</p>}
+            <img src="/src/images/icon-cart.svg" alt="cart" />
+          </div>
+          <div>
+            <img src="/src//images/image-avatar.png" alt="dp" />
+          </div>
         </div>
       </div>
     </nav>

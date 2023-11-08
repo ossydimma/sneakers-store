@@ -27,13 +27,6 @@ function swiper({}) {
     });
   }, []);
 
-  function addCart(): void {
-    setCount(count++);
-  }
-  function subCart(): void {
-    count === 0 ? setCount(0) : setCount(count--);
-  }
-
   return (
     <>
       <div className="product">
@@ -139,10 +132,10 @@ function swiper({}) {
             </div>
             <div className="cart-btn">
               <div>
-                <a href="">
+                <button>
                   <img src="/src/images/icon-cart.svg" alt="" />
                   Add to cart
-                </a>
+                </button>
               </div>
             </div>
           </div>

@@ -20,20 +20,22 @@
       cursor: pointer;
     }
   }
+  .cart-items {
+    position: absolute;
+    background: #fff;
+    top: 85px;
+    right: 10px;
+
+  }
   .product {
     margin: 40px 100px;
   }
   .mySwiper {
-    // margin-top: 120px;
-    // box-sizing: border-box;
-    // width: 100%;
 
     img {
       width: 300px;
       height: 300px;
       border-radius: 15px;
-      //   object-fit: contain;
-      //   margin-bottom: 20px;
     }
   }
 }
@@ -125,14 +127,12 @@
         border-radius: 10px;
       }
       .cart-btn {
-        padding: 20px 0;
         width: 100%;
-        text-align: center;
-        font-size: 16px;
-        border-radius: 10px;
-        gap: 0;
-        div {
-          margin: 0 auto;
+        button {
+          width: 100%;
+          font-size: 16px;
+          border-radius: 10px;
+          padding: 15px 0;
         }
       }
     }
