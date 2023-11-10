@@ -12,15 +12,20 @@ import "swiper/css/thumbs";
 // import required modules
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
+interface MyComponentProps {
+  isShow: boolean;
+  setIsShow: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-function swiper({}) {
-  const count = useSelector(selectCount)
-  const dispatch = useDispatch()
+function swiper({ isShow, setIsShow }: MyComponentProps) {
+  const count = useSelector(selectCount);
+  const [showFeedBack, setShowFeedBack] = useState(false);
+  const dispatch = useDispatch();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [navigator, setNavigator] = useState(
     window.innerWidth < 900 ? true : false
   );
- 
+
   useEffect(() => {
     window.addEventListener("resize", () => {
       window.innerWidth > 900 ? setNavigator(false) : setNavigator(true);
@@ -118,27 +123,52 @@ function swiper({}) {
           </div>
           <div className="add-cart">
             <div className="cart-cal">
-              <div onClick={()=> {
-                if (count > 0) dispatch(decrement())  
-              }}>
+              <div
+                onClick={() => {
+                  if (count > 0) dispatch(decrement());
+                }}
+              >
                 <img src="/src/images/icon-minus.svg" alt="minus icon" />
               </div>
               <p>{count}</p>
-              <div onClick={()=> {
-                dispatch(increment())
-              }}>
+              <div
+                onClick={() => {
+                  dispatch(increment());
+                }}
+              >
                 <img src="/src/images/icon-plus.svg" alt="plus icon" />
               </div>
             </div>
+
             <div className="cart-btn">
               <div>
-                <button>
-                  <img src="/src/images/icon-cart.svg" alt="" />
+                <button
+                  onClick={() => {
+                    if (count === 0) {
+                      setShowFeedBack(true);
+                    } else {
+                      setIsShow(true);
+                      setShowFeedBack(false);
+                    }
+                  }}
+                >
+                  <img src="/src/images/icon-cart.svg" alt="cart icon" />
                   Add to cart
                 </button>
               </div>
             </div>
           </div>
+          {showFeedBack && (
+            <p
+              style={{
+                textAlign: "center",
+                marginTop: "20px",
+                color: "hsl(26, 100%, 55%)",
+              }}
+            >
+              Select The Quantities You Need
+            </p>
+          )}
         </div>
       </div>
     </>

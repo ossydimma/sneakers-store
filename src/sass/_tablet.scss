@@ -12,6 +12,12 @@
     ul {
       display: flex;
       gap: 15px;
+      li {
+        :hover {
+          color: $primary-color1;
+          border: none;
+        }
+      }
     }
     img {
       width: 30px;
@@ -21,17 +27,25 @@
     }
   }
   .cart-items {
+    width: 65%;
+    height: 230px;
     position: absolute;
     background: #fff;
     top: 85px;
     right: 10px;
-
+    .cart-content {
+      padding: 15px 27px;
+      .cart-content-body {
+        h1 {
+          @include fonts(14px, 400, $Dark-grayish-blue);
+        }
+      }
+    }
   }
   .product {
     margin: 40px 100px;
   }
   .mySwiper {
-
     img {
       width: 300px;
       height: 300px;
